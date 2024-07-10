@@ -2,9 +2,9 @@ import { FaGithub } from "react-icons/fa";
 
 export default function Footer () {
   return (
-    <footer id='footer'>
+    <footer className="flex items-center justify-end space-x-8 border-t border-slate-200 py-6 px-8">
       {/* footer logos */}
-      <div >
+      <div>
         <FaGithub />
       </div>
       {/* footer copyright */}

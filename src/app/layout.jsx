@@ -5,11 +5,12 @@ import './globals.css';
 export default function Layout ({ children }) {
 
   return (
-    <html>
-      <body>
+    <html lang="fr">
+      <body className="min-h-screen flex flex-col items-center">
         <Navbar />
-        <main>{children}</main>
-
+          <main className="flex-grow w-8/12">
+            {children}
+          </main>
         <Footer />
       </body>
     </html>
