@@ -4,7 +4,7 @@ export default function MainTitle({title, center}) {
   return (
     <>
       <h1 className={`text-4xl font-bold mt-12 ${center ? 'text-center' : ''}`}>{title} {center}</h1>
-      <Divider className="mt-10" />
+      <Divider className="mt-10 bg-white w-40 md:w-80" />
     </>
   )
 }

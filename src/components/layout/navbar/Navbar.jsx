@@ -8,7 +8,7 @@ import Link from 'next/link'
 export default function NavbarLayout() {
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isLoggedIn = true;
+  const isLoggedIn = false;
   const user = {
     id: 1,
     email: "aa@gmail.com",
@@ -38,6 +38,7 @@ export default function NavbarLayout() {
     <Navbar
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
+      className="bg-grayPrimary" 
       classNames={{
         item: [
           "flex",
@@ -46,7 +47,7 @@ export default function NavbarLayout() {
           "h-full",
           "items-center",
           "justify-around",
-          "data-[active=true]:font-normal	",
+          "data-[active=true]:font-bold",
           "data-[active=true]:after:content-['']",
           "data-[active=true]:after:absolute",
           "data-[active=true]:after:bottom-0",

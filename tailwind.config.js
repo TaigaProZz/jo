@@ -18,8 +18,13 @@ module.exports = {
         'hero': '716px',
       },
       colors: {
+        grayPrimary: '#27272A',
+        graySecondary: '#404040',
+        text1: '#000000',
+        text2: '#FFFFFF',
         creme: '#d6c377',
         kaki: '#555036',
+        gradiant: 'linear-gradient(90deg, rgba(255, 255, 255, 1) 0 %, rgba(177, 200, 204, 1) 100 %)'
       },
       backgroundPosition: {
         'top-hero': 'center 1rem',
