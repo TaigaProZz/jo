@@ -1,4 +1,3 @@
-import { Image } from "@nextui-org/react";
 import NextImage from "next/image";
 import HeroButton from "@/components/buttons/HeroButton";
 import SportCard from "@/components/cards/SportCard";
@@ -103,37 +102,38 @@ export default function Page () {
             alt="anneaux des jeux olmypiques"
           />
         </div>
-        
       </div>
 
       {/* sport calendar section */}
       {/* title */}
-      <MainTitle title="Calendrier des sports" />
-      {/* container */}
-      <div className="flex flex-col w-full gap-[56px] mt-[26px]">
-        {/* day 1 */}
-        <section className="flex flex-col gap-[56px]">
-          <h2 className="font-bold text-3xl">Jour 1</h2>
-          <div className="flex flex-col flex-wrap items-center lg:flex-row gap-[20px] md:gap-[20px] lg:gap-[40px] md:ml-8">
-            {
-              dayOneSports.map((v, i) => (
-                <SportCard key={i} sport={v} />
-              ))
-            }
-          </div>
-        </section>
+      <div className="mt-[80px]">
+        <MainTitle title="Calendrier des sports" />
+        {/* container */}
+        <div className="flex flex-col w-full gap-[56px] mt-[26px]">
+          {/* day 1 */}
+          <section className="flex flex-col gap-[56px]">
+            <h2 className="font-bold text-3xl">Jour 1</h2>
+            <div className="flex flex-col flex-wrap items-center lg:flex-row gap-[20px] md:gap-[20px] lg:gap-[40px] md:ml-8">
+              {
+                dayOneSports.map((v, i) => (
+                  <SportCard key={i} sport={v} />
+                ))
+              }
+            </div>
+          </section>
 
-        {/* day 2 */}
-        <section className="flex flex-col gap-[56px]">
-          <h2 className="font-bold text-3xl">Jour 2</h2>
-          <div className="flex flex-col flex-wrap items-center lg:flex-row gap-[20px] md:gap-[20px] lg:gap-[40px] md:ml-8">
-            {
-              dayDaySports.map((v, i) => (
-                <SportCard key={i} sport={v} />
-              ))
-            }
-          </div>
-        </section>
+          {/* day 2 */}
+          <section className="flex flex-col gap-[56px]">
+            <h2 className="font-bold text-3xl">Jour 2</h2>
+            <div className="flex flex-col flex-wrap items-center lg:flex-row gap-[20px] md:gap-[20px] lg:gap-[40px] md:ml-8">
+              {
+                dayDaySports.map((v, i) => (
+                  <SportCard key={i} sport={v} />
+                ))
+              }
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );
