@@ -6,9 +6,13 @@ export default function Layout ({ children }) {
 
   return (
     <html lang="fr">
+      <title>JO 2024 Paris</title>
+      <meta name="description" content="Site des jo 2024 de ventes de tickets / billet , projet réalisé dans un but scolaire." />
+      <link rel="preload" as="image" href="./public/assets/bg/hero-section.svg" />
+ 
       <body className="min-h-screen flex flex-col items-center">
         <Navbar />
-          <main className="flex-grow w-8/12">
+          <main className="flex-grow w-8/12 mb-16">
             {children}
           </main>
         <Footer />

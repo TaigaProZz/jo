@@ -4,10 +4,13 @@ import MainTitle from "@/components/layout/main-title/MainTitle";
 
 async function fetchTickets() {
   const response = axios.get("http://localhost:3000/ticket")
-  return response;
+  return response; 
 }
 export default async function Formules() {
-  const tickets = await fetchTickets(); 
+
+  const tickets = await fetchTickets().catch(e => {
+    console.log(e) 
+  }); 
 
   return (
     <>
@@ -22,11 +25,10 @@ export default async function Formules() {
                   <TicketCard  ticket={v} />
                 </li>
               ))
-              : "fetching"
+              : "Chargement"
           }
         </ul>
       </div>
     </>
-  
   )
 }

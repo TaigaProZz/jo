@@ -68,7 +68,7 @@ export default function NavbarLayout() {
         {/* ico and title */}
         <NavbarBrand className="justify-center md:justify-start mr-6">
           <Link className="flex items-center" color="foreground" href="/">
-            <img src="/assets/logo/logo-jo.svg" />
+            <Image src="/assets/logo/logo-jo.svg" alt="jo 2024 paris" />
             <p className="font-bold text-inherit ml-3 hidden lg:flex">JO 2024</p>
           </Link>
         </NavbarBrand>
@@ -106,59 +106,62 @@ export default function NavbarLayout() {
 
           // USER LOGGED IN
           // cart and avatar
-          <NavbarContent as="div" justify="end">
+          <NavbarContent justify="end">
             {/* cart item */}
             <NavbarItem className="hidden sm:flex mr-6 pt-2" isActive={pathname === '/cart' ? true : false}>
-            <Link href="/cart" className="h-full flex items-center">
-              <div className="flex items-center justify-center relative">
-                <p>Panier</p>
-                <img src="/assets/icons/shopping-cart.svg" className="h-6 w-6 ml-2" />
-                <p className="absolute bottom-3 left-[4.7rem] font-bold rounded-full bg-creme h-7 w-7 text-center content-center">
-                  {user.cartItems}
-                </p>
-              </div>
-            </Link>
+              <Link href="/cart" className="h-full flex items-center">
+                <div className="flex items-center justify-center relative">
+                  <p>Panier</p>
+                  <Image src="/assets/icons/shopping-cart.svg" alt="cart" className="h-8 w-6 ml-2" />
+                  <p className="absolute bottom-3 left-[4.7rem] font-bold rounded-full bg-creme h-7 w-7 text-center content-center">
+                    {user.cartItems}
+                  </p>
+                </div>
+              </Link>
             </NavbarItem>
 
-            {/* avatar dropdown */}
-            <Dropdown placement="bottom-end">
-              <DropdownTrigger>
-                <Image
-                  className="h-10 w-10 cursor-pointer"
-                  src="/assets/icons/user-ico.svg"
-                />
-              </DropdownTrigger>
-              {/* email */}
-              <DropdownMenu aria-label="Profile Actions" variant="flat">
-                <DropdownSection showDivider>
-                  <DropdownItem key="profile" className="h-14 gap-2">
-                    <Link href="/profile">
-                      <p className="font-semibold">Connecté avec</p>
-                      <p className="font-semibold">{user.email}</p>
-                    </Link>
-                  </DropdownItem>
-                </DropdownSection>
-
-                {/* top section */}
-                <DropdownSection showDivider>
-                  {dropdownItem.map((item, index) => (
-                    <DropdownItem key={index}>
-                      <Link href={item.href}> 
-                        {item.name}
+            <NavbarItem>
+              {/* avatar dropdown */}
+              <Dropdown placement="bottom-end">
+                <DropdownTrigger>
+                  <Image
+                    className="h-10 w-10 cursor-pointer"
+                    src="/assets/icons/user-ico.svg"
+                    alt="user dropdown"
+                  />
+                </DropdownTrigger>
+                {/* email */}
+                <DropdownMenu aria-label="Profile Actions" variant="flat">
+                  <DropdownSection showDivider>
+                    <DropdownItem key="profile" className="h-14 gap-2">
+                      <Link href="/profile">
+                        <p className="font-semibold">Connecté avec</p>
+                        <p className="font-semibold">{user.email}</p>
                       </Link>
                     </DropdownItem>
-                  ))}
-                </DropdownSection>
+                  </DropdownSection>
 
-                {/* logout */}
-                <DropdownSection>
-                  <DropdownItem key="logout" className="mt-1" color="danger">
-                    Déconnexion
-                  </DropdownItem>
-                </DropdownSection>
+                  {/* top section */}
+                  <DropdownSection showDivider>
+                    {dropdownItem.map((item, index) => (
+                      <DropdownItem key={index}>
+                        <Link href={item.href}> 
+                          {item.name}
+                        </Link>
+                      </DropdownItem>
+                    ))}
+                  </DropdownSection>
 
-              </DropdownMenu>
-            </Dropdown>
+                  {/* logout */}
+                  <DropdownSection>
+                    <DropdownItem key="logout" className="mt-1" color="danger">
+                      Déconnexion
+                    </DropdownItem>
+                  </DropdownSection>
+
+                </DropdownMenu>
+              </Dropdown>
+            </NavbarItem>
           </NavbarContent>
       }
 
