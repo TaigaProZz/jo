@@ -2,7 +2,7 @@ import Link from "next/link";
 import PrimaryButton from "../buttons/PrimaryButton";
 export default function TicketCard({ticket}) {
   return (
-    <div className="flex flex-col justify-start place-content-between gap-[14px] relative items-center bg-white h-[305px] w-[234px] sm:h-[345px] sm:w-[274px] drop-shadow-[0_4px_8px_rgba(0,0,0,0.25)] p-[16px] pt-[32px]">
+    <div className="flex flex-col justify-start rounded-md place-content-between gap-[14px] relative items-center bg-white h-[305px] w-[234px] sm:h-[345px] sm:w-[274px] drop-shadow-[0_4px_8px_rgba(0,0,0,0.25)] p-[16px] pt-[32px]">
       {/* price */}
       <p className="text-[20px] rounded font-bold absolute top-[-16px] bg-kaki w-28 text-white items-center text-center">{ticket.price}€</p>
       {/* header : name and number of person admission */}
