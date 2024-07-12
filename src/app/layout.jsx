@@ -14,7 +14,7 @@ export default function Layout ({ children }) {
       <meta name="description" content="Site des jo 2024 de ventes de tickets / billet , projet réalisé dans un but scolaire." />
       <link rel="preload" as="image" href="./public/assets/bg/hero-section.svg" />
  
-      <body className="min-h-screen flex flex-col items-center bg-grayPrimary">
+      <body className="min-h-screen flex flex-col items-center bg-radial-custom-gradient">
         <Navbar />
           <main className="flex-grow w-full p-6 md:w-10/12 mb-16">
             {children}

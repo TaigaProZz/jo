@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function SportCard({ sport }) {
   return (
-    <div className="flex flex-col justify-start rounded-[20px] place-content-between gap-[14px] bg-graySecondary text-text2 h-[280px] w-full max-w-[250px] sm:h-[326px] sm:max-w-none sm:w-[304px] drop-shadow-[0_4px_8px_rgba(0,0,0,0.25)] p-[16px] pt-[32px]">
+    <div className="flex flex-col justify-start rounded-[20px] place-content-between gap-[14px] bg-graySecondary text-text2 h-[280px] w-full max-w-[250px] sm:h-[306px] sm:max-w-none sm:w-[304px] drop-shadow-[0_4px_8px_rgba(0,0,0,0.25)] p-[16px] pt-[32px]">
       <div className="flex flex-col gap-[35px] w-full">
         {/* image */}
         <div className="w-full">

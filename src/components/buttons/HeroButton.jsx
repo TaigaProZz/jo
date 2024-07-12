@@ -1,9 +1,5 @@
-'use client'
-
-import { Button } from "@nextui-org/button";
-
 export default function HeroButton({text}) {
   return (
-    <Button className="bg-creme rounded-md p-6">{text}</Button>
+    <button className="h-[48px] text-[16px] flex items-center justify-center text-text1 bg-creme rounded-md p-6 font-semibold">{text}</button>
   )
 }

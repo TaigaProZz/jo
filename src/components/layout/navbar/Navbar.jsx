@@ -38,7 +38,7 @@ export default function NavbarLayout() {
     <Navbar
       isMenuOpen={isMenuOpen}
       onMenuOpenChange={setIsMenuOpen}
-      className="bg-grayPrimary" 
+      className="bg-transparent" 
       classNames={{
         item: [
           "flex",

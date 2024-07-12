@@ -1,34 +1,42 @@
 import TicketCard from "@/components/cards/TicketCard";
 import axios from "axios";
 import MainTitle from "@/components/layout/main-title/MainTitle";
+import PrimaryButton from "@/components/buttons/PrimaryButton";
 
 async function fetchTickets() {
-  const response = axios.get("http://localhost:3000/ticket")
-  return response; 
+  const response = await axios.get("http://localhost:3000/ticket");
+  return response.data;
 }
-export default async function Formules() {
 
-  const tickets = await fetchTickets().catch(e => {
-    console.log(e) 
-  }); 
+export default async function Formules() {
+  let tickets = [];
+  let isLoading = true;
+
+  try {
+    tickets = await fetchTickets();
+  } catch (error) {
+    console.log(error);
+  } finally {
+    isLoading = false;
+  }
 
   return (
     <>
       <MainTitle title="Nos tickets" />
-      <div className="flex mt-20">
-        {/* list of TicketCard */}
-        <ul className="flex flex-wrap gap-12">
+      {/* List of TicketCard */}
+      <div className="flex justify-center">
+        <ul className="flex flex-col md:flex-wrap md:flex-row gap-20 mt-20 ">
           {
-            tickets ?
-              tickets.data.map((v, i) => (
-                <li key={i} className="flex justify-start">
-                  <TicketCard  ticket={v} />
+            tickets.length > 0 ?
+              tickets.map((ticket, index) => (
+                <li key={index}>
+                  <TicketCard ticket={ticket} />
                 </li>
               ))
-              : "Chargement"
+              : isLoading ? "Chargement" : "Aucuns ticket trouvés"
           }
         </ul>
       </div>
     </>
-  )
+  );
 }
