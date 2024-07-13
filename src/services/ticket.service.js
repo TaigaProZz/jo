@@ -5,6 +5,6 @@ export default async function fetchTickets() {
     const response = await axiosBase().get("/ticket");
     return response.data;
   } catch (error) {
-    throw new error;
+    throw error;
   }
 }
