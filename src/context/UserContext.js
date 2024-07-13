@@ -13,7 +13,7 @@ export const UserProvider = ({ children }) => {
         const user = await getUser();
         setUser(user);
       } catch (error) {
-        console.error('Failed to fetch user', error);
+        setUser({});
       }
     };
     fetchUser();
@@ -21,7 +21,7 @@ export const UserProvider = ({ children }) => {
 
   return (
     <UserContext.Provider value={{ user, setUser }}>
-      {children}
+      {user ? children : 'loading'}
     </UserContext.Provider>
   );
 };
