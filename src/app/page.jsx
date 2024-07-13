@@ -3,7 +3,7 @@ import HeroButton from "@/components/buttons/HeroButton";
 import SportCard from "@/components/cards/SportCard";
 import MainTitle from "@/components/layout/main-title/MainTitle";
 import Link from "next/link";
-import heroBg from "../../public/assets/bg/bg-jo.jpg"
+import heroBg from "../../public/assets/bg/bg-jo.webp"
 
 export default function Page () { 
   const dayOneSports = [
