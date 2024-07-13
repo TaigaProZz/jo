@@ -19,13 +19,17 @@ export default function Footer () {
   ]
   return (
     <footer className="w-full flex flex-col items-center gap-6 py-6 md:gap-16 lg:gap-40 md:justify-center md:flex-row">
-      {/* footer logos */}
+
+      {/* footer logo */}
       <div className="w-full flex flex-col items-center text-center gap-6 md:flex-row md:justify-end md:text-left">
-        <NextImage
-          priority
-          src={logo}
-          alt="jo 2024 paris"
-        />
+        <Link href='/'>
+          <NextImage
+            priority
+            src={logo}
+            alt="jo 2024 paris"
+          />
+        </Link>
+       
         {/* first side */}
         <div className="flex flex-col gap-3">
           {
@@ -35,7 +39,10 @@ export default function Footer () {
           }
         </div>
       </div>
+     
+     {/* divider for mobile between sections */}
       <Divider className="bg-white w-8/12 md:hidden" orientation="horizontal"/>
+
       {/* last side */}
       <div className="w-full flex flex-col items-center text-center gap-6 md:items-start md:text-left">
         <div className="flex flex-col gap-3">
