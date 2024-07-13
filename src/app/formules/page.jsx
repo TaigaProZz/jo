@@ -1,6 +1,6 @@
 import TicketCard from "@/components/cards/TicketCard";
 import MainTitle from "@/components/layout/main-title/MainTitle";
-import fetchTickets from "@/services/formule.service";
+import fetchTickets from "@/services/ticket.service";
 
 export default async function Formules() {
   let tickets = [];

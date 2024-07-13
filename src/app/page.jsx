@@ -97,6 +97,7 @@ export default function Page () {
         {/* image */}
         <div className="h-30 md:min-w-[300px] max-w-[800px]">
           <NextImage
+            priority
             src={heroBg}
             className="object-fill"
             alt="anneaux des jeux olmypiques"
