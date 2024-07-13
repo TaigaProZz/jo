@@ -1,12 +1,6 @@
 import TicketCard from "@/components/cards/TicketCard";
-import axios from "axios";
 import MainTitle from "@/components/layout/main-title/MainTitle";
-import PrimaryButton from "@/components/buttons/PrimaryButton";
-
-async function fetchTickets() {
-  const response = await axios.get("http://localhost:3000/ticket");
-  return response.data;
-}
+import fetchTickets from "@/services/formule.service";
 
 export default async function Formules() {
   let tickets = [];
