@@ -80,7 +80,7 @@ export default function NavbarLayout() {
         <NavbarContent className="hidden sm:flex gap-4" justify="center">
           {navItems.slice(1, 3).map((item, index) => (
             <NavbarItem key={index} isActive={pathname === item.href ? true : false}>
-              <Link color="foreground" href={item.href} className="h-full flex items-center">
+              <Link color="foreground" href={item.href} className="h-full flex items-center hover:text-creme">
                 {item.name}
               </Link>
             </NavbarItem>
@@ -95,12 +95,12 @@ export default function NavbarLayout() {
         !isLoggedIn ?
           <NavbarContent justify="end">
             <NavbarItem className="hidden lg:flex" isActive={pathname === '/login' ? true : false}>
-              <Link href="/login" className="h-full flex items-center">
+              <Link href="/login" className="h-full flex items-center hover:text-creme">
                 Connexion
               </Link>
             </NavbarItem>
             <NavbarItem >
-              <Button as={Link} className={pathname === '/register' ? "bg-creme" : "bg-gray-300"} href="/register" variant="flat">
+              <Button as={Link} className={pathname === '/register' ? "bg-creme" : "bg-gray-300 hover:bg-creme"} href="/register" variant="flat">
                 S'inscrire
               </Button>
             </NavbarItem>
@@ -169,7 +169,7 @@ export default function NavbarLayout() {
       }
 
       {/* burger menu */}
-      <NavbarMenu>
+      <NavbarMenu className="bg-transparent">
         {navItems.map((item, index) => (
           <NavbarMenuItem key={index} isActive={pathname === item.href ? true : false} onClick={handleMenuClose}>
             <Link
