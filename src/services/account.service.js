@@ -9,3 +9,14 @@ export async function login (credentials) {
     throw error;
   }
 }
+
+export async function register (credentials) {
+  try {
+    return await axiosBase().post('/user/', credentials);
+  } catch (error) {
+    const errMessage = error.response.data.message;
+    if (errMessage === "Email already exists") throw ('Email déjà enregistré.')
+    throw error;
+  }
+}
+
