@@ -99,7 +99,7 @@ export default function Page () {
           <NextImage
             priority
             src={heroBg}
-            className="object-fill"
+            className="object-fill rounded-lg"
             alt="anneaux des jeux olmypiques"
           />
         </div>
