@@ -30,8 +30,13 @@ export default function Index() {
       name: firstName.current?.value,
     }
 
+    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+
     // check if inputs are empty
     if (!data.email || !data.password || !data.password2 || !data.surname || !data.name) return toast.error('Veuillez remplir tous les champs.');
+
+    // check if password is strong : Minimum eight characters, at least one letter, one number and one special character
+    if (!passwordRegex.test(data.password)) return toast.error("Le mot de passe n'est pas assez complexe.")
 
     // check if passwords match
     if(!(data.password === data.password2)) return toast.error('Les mots de passe ne sont pas identiques.');
@@ -60,14 +65,14 @@ export default function Index() {
 
   return (
     <div className="h-[50rem] flex items-center justify-center">
-      <form onSubmit={formHandler} className="rounded-lg flex justify-between items-center px-10 pt-10 pb-6 flex-col h-[41rem] w-full md:w-96 bg-radial-custom-gradient drop-shadow-[0_4px_8px_rgba(0,0,0,0.65)]">
+      <form onSubmit={formHandler} className="rounded-lg flex justify-between gap-4 items-center px-10 pt-6 pb-6 flex-col h-[43rem] w-full bg-radial-custom-gradient drop-shadow-[0_4px_8px_rgba(0,0,0,0.65)] md:w-96 md:pt-10">
         <div className="w-full flex flex-col items-center gap-6 ">
           <h1 className="text-2xl font-bold drop-shadow-[0_6px_8px_rgba(0,0,0,0.)] ">S'inscrire</h1>
           {/* email */}
           <Input ref={emailRef} isRequired type="email" label="Email" placeholder="Entrez votre email" className="dark drop-shadow-[0_4px_8px_rgba(0,0,0,0.45)]" />
 
           {/* passwords */}
-          <Input ref={password1} isRequired type="password" label="Mot de passe" placeholder="Entrez votre mot de passe" className="dark drop-shadow-[0_4px_8px_rgba(0,0,0,0.45)]" />
+          <Input ref={password1} isRequired type="password" label="Mot de passe" labelPlacement="inside" description={'Le mot de passe doit contenir au moins 8 caractères, une lettre, un nombre et un caractère spécial.'} placeholder="Entrez votre mot de passe" className="dark drop-shadow-[0_4px_8px_rgba(0,0,0,0.45)]" />
           <Input ref={password2} isRequired type="password" label="Répéter mot de passe" placeholder="Confirmez votre mot de passe" className="dark drop-shadow-[0_4px_8px_rgba(0,0,0,0.45)]" />
           
           {/* names */}
