@@ -4,17 +4,16 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Button, Image, NavbarMe
 import { usePathname } from 'next/navigation'
 import { useState } from "react";
 import Link from 'next/link'
+import { useUser } from "@/context/UserContext";
+import NextImage from "next/image";
+import logo from "../../../../public/assets/logo/logo-jo.svg"
 
 export default function NavbarLayout() {
+  const { user } = useUser();
   const pathname = usePathname();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const isLoggedIn = false;
-  const user = {
-    id: 1,
-    email: "aa@gmail.com",
-    photo: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
-    cartItems: 2,
-  }
+  const isLoggedIn = user && Object.keys(user).length > 0 ? true : false;
+
 
   const navItems = [
     { name: "Accueil", href: "/" },
@@ -69,7 +68,10 @@ export default function NavbarLayout() {
         {/* ico and title */}
         <NavbarBrand className="justify-center md:justify-start mr-6">
           <Link className="flex items-center" color="foreground" href="/">
-            <Image src="/assets/logo/logo-jo.svg" alt="jo 2024 paris" />
+            <NextImage
+              priority
+              src={logo} 
+              alt="jo 2024 paris" />
             <p className="font-bold text-inherit ml-3 hidden lg:flex">JO 2024</p>
           </Link>
         </NavbarBrand>
@@ -136,8 +138,8 @@ export default function NavbarLayout() {
                   <DropdownSection showDivider>
                     <DropdownItem key="profile" className="h-14 gap-2">
                       <Link href="/profile">
-                        <p className="font-semibold">Connecté avec</p>
-                        <p className="font-semibold">{user.email}</p>
+                        <p className="font-semibold text-text1">Connecté avec</p>
+                        <p className="font-semibold text-text1">{user.email}</p>
                       </Link>
                     </DropdownItem>
                   </DropdownSection>
@@ -146,7 +148,7 @@ export default function NavbarLayout() {
                   <DropdownSection showDivider>
                     {dropdownItem.map((item, index) => (
                       <DropdownItem key={index}>
-                        <Link href={item.href}> 
+                        <Link href={item.href} className="text-text1"> 
                           {item.name}
                         </Link>
                       </DropdownItem>
@@ -155,8 +157,8 @@ export default function NavbarLayout() {
 
                   {/* logout */}
                   <DropdownSection>
-                    <DropdownItem key="logout" className="mt-1" color="danger">
-                      Déconnexion
+                    <DropdownItem key="logout" className="mt-1">
+                      <p className="text-red-500">Déconnexion</p>
                     </DropdownItem>
                   </DropdownSection>
 
