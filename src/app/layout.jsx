@@ -19,6 +19,9 @@ export default function Layout ({ children }) {
           <Toaster 
             position="bottom-right"
             reverseOrder={false}
+            toastOptions={{
+              duration: 6000
+            }}
           />
         </div>
 

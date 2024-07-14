@@ -8,6 +8,7 @@ import { Input } from "@nextui-org/react";
 import PrimaryButton from "@/components/buttons/PrimaryButton";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 
 export default function Login() {
@@ -22,7 +23,7 @@ export default function Login() {
 
     // get data from inputs
     const data = {
-      email: emailRef.current?.value,
+      email: emailRef.current?.value.toLowerCase(),
       password: passwordRef.current?.value
     };
 
@@ -56,7 +57,7 @@ export default function Login() {
           </div>
           <div className="w-full flex flex-col items-center gap-2">
             <PrimaryButton text="Se connecter" type="submit" />
-            <p>Pas encore inscrit ? <span className="underline underline-offset-2">Inscrivez-vous ici</span></p>
+          <p>Pas encore inscrit ? <Link href='/register'><span className="underline underline-offset-2">Inscrivez-vous ici</span></Link></p>
           </div>
         </form>
       </div>    
